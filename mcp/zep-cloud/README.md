@@ -1,7 +1,9 @@
 # Zep MCP server
 
-> [!NOTE] Reference
+> [!NOTE]
+> Reference
 > From: https://github.com/modelcontextprotocol/servers/pull/50/files#diff-ea44b4f30d58ec098791eada9ebf67766b06dcf03804a4c071f799725fc48544
+> https://github.com/paul-paliychuk
 
 
 MCP server for using Zep long term memory with Claude
@@ -11,6 +13,7 @@ Zep is a long-term memory service for AI Assistant apps. With Zep, you can provi
 
 > [!NOTE]
 > Zep Cloud [overview](https://help.getzep.com/concepts)
+
 ## Components
 
 ### Prompts
@@ -64,12 +67,14 @@ Add this to your `claude_desktop_config.json`:
 <summary>Using pip installation</summary>
 
 ```json
-"mcpServers": {
-  "mcp-server-zep-cloud": {
-    "command": "python",
-    "args": ["-m", "mcp-server-zep-cloud", "--api-key", "YOUR_API_KEY"],
-    "env": {
-      "ZEP_API_KEY": "YOUR_API_KEY"
+{
+  "mcpServers": {
+    "mcp-server-zep-cloud": {
+      "command": "python",
+      "args": ["-m", "mcp-server-zep-cloud", "--api-key", "YOUR_API_KEY"],
+      "env": {
+        "ZEP_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
@@ -84,15 +89,17 @@ Add to your Zed settings.json:
 <summary>Using uvx</summary>
 
 ```json
-"context_servers": [
-  "mcp-server-zep-cloud": {
-    "command": "uvx",
-    "args": ["mcp-server-zep-cloud", "--api-key", "YOUR_API_KEY"],
-    "env": {
-      "ZEP_API_KEY": "YOUR_API_KEY"
+{
+  "context_servers": {
+    "mcp-server-zep-cloud": {
+      "command": "uvx",
+      "args": ["mcp-server-zep-cloud", "--api-key", "YOUR_API_KEY"],
+      "env": {
+        "ZEP_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
-],
+}
 ```
 </details>
 
@@ -100,15 +107,17 @@ Add to your Zed settings.json:
 <summary>Using pip installation</summary>
 
 ```json
-"context_servers": {
-  "mcp-server-zep-cloud": {
-    "command": "python",
-    "args": ["-m", "mcp-server-zep-cloud", "--api-key", "YOUR_API_KEY"],
-    "env": {
-      "ZEP_API_KEY": "YOUR_API_KEY"
+{
+  "context_servers": {
+    "mcp-server-zep-cloud": {
+      "command": "python",
+      "args": ["-m", "mcp-server-zep-cloud", "--api-key", "YOUR_API_KEY"],
+      "env": {
+        "ZEP_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
-},
+}
 ```
 </details>
 
@@ -116,13 +125,13 @@ Add to your Zed settings.json:
 
 You can use the MCP inspector to debug the server. For uvx installations:
 
-```
+```sh
 npx @modelcontextprotocol/inspector uvx mcp-server-zep-cloud --api-key YOUR_API_KEY
 ```
 
 Or if you've installed the package in a specific directory or are developing on it:
 
-```
+```sh
 cd path/to/servers/src/zep
 npx @modelcontextprotocol/inspector uv run mcp-server-zep-cloud --api-key YOUR_API_KEY
 ```

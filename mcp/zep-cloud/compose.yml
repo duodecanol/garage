@@ -1,0 +1,10 @@
+services:
+  mcp-server-zep-cloud:
+    image: mcp/zep-cloud:latest
+    build:
+      context: .
+    environment:
+      ZEP_API_KEY: ${ZEP_API_KEY}
+    ports:
+      - 38755:8000
+    command: ["--transport", "sse"]
