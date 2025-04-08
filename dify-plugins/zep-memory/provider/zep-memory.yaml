@@ -28,7 +28,8 @@ identity:
     pt_BR: zep memory
   icon: icon.svg
 tools:
-  - tools/zep-memory.yaml
+  - tools/get-memory.yaml
+  - tools/add-memory.yaml
 extra:
   python:
     source: provider/zep-memory.py

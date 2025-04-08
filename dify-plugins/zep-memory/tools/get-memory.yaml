@@ -1,34 +1,27 @@
 identity:
-  name: zep-memory
+  name: get-memory
   author: duodecanol
   label:
-    en_US: zep-memory
-    zh_Hans: zep-memory
-    pt_BR: zep-memory
+    en_US: get-memory
+    zh_Hans: get-memory
+    pt_BR: get-memory
+
 description:
   human:
-    en_US: zep memory
-    zh_Hans: zep memory
-    pt_BR: zep memory
-  llm: zep memory
+    en_US: get memory
+    zh_Hans: get memory
+    pt_BR: get memory
+  llm: |
+    Retrieve conversation memory and context.
+    You MUST call this tool:
+    1. AFTER saving the user's message with add-memory
+    2. BEFORE generating your response
+
+    This ensures you have full context before responding.
+
 parameters:
   # LLM parameters
   - form: llm
-    name: query
-    type: string
-    required: true
-    label:
-      en_US: Query string
-      zh_Hans: 查询语句
-      ja_JP: クエリ文字列
-    human_description:
-      en_US: zep memory
-      zh_Hans: zep memory
-      ja_JP: zep memory
-    llm_description: Query string
-
-  # Settings parameters
-  - form: form
     name: user_id
     type: string
     required: true
@@ -44,7 +37,9 @@ parameters:
       en_US: User ID
       zh_Hans: 用户 ID
       ja_JP: ユーザー ID
-  - form: form
+    llm_description: User ID
+
+  - form: llm
     name: session_id
     type: string
     required: true
@@ -56,6 +51,10 @@ parameters:
       en_US: Session ID
       zh_Hans: 会话 ID
       ja_JP: セッション ID
+    llm_description: Session ID
+
+  # Settings parameters
+
 extra:
   python:
-    source: tools/zep-memory.py
+    source: tools/get-memory.py

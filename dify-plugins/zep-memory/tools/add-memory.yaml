@@ -1,0 +1,91 @@
+identity:
+  name: add-memory
+  author: duodecanol
+  label:
+    en_US: add-memory
+    zh_Hans: add-memory
+    pt_BR: add-memory
+
+description:
+  human:
+    en_US: add memory
+    zh_Hans: add memory
+    pt_BR: add memory
+  llm: |
+    Add a single message to the conversation memory. Follow this exact workflow:
+    1. When you receive a user message, IMMEDIATELY call this tool with the user's message
+    2. Call get-memory to retrieve context
+    3. Generate your response
+    4. Call this tool again with your response
+
+    Format the message as:
+    - For user messages: {"role_type": "user", "content": "<their message>"}
+    - For your responses: {"role_type": "assistant", "content": "<your message>"}
+
+parameters:
+  # LLM parameters
+  - form: llm
+    name: user_id
+    type: string
+    required: true
+    label:
+      en_US: User ID
+      zh_Hans: 用户 ID
+      ja_JP: ユーザー ID
+    placeholder:
+      en_US: Please input your User ID
+      zh_Hans: 请输入你的用户 ID
+      ja_JP: ユーザー IDを入力してください
+    human_description:
+      en_US: User ID
+      zh_Hans: 用户 ID
+      ja_JP: ユーザー ID
+    llm_description: User ID
+
+  - form: llm
+    name: session_id
+    type: string
+    required: true
+    label:
+      en_US: Session ID
+      zh_Hans: 会话 ID
+      ja_JP: セッション ID
+    human_description:
+      en_US: Session ID
+      zh_Hans: 会话 ID
+      ja_JP: セッション ID
+    llm_description: Session ID
+
+  - form: llm
+    name: role_type
+    type: string
+    required: true
+    label:
+      en_US: Role Type
+      zh_Hans: 角色类型
+      ja_JP: ロールタイプ
+    human_description:
+      en_US: Role Type
+      zh_Hans: 角色类型
+      ja_JP: ロールタイプ
+    llm_description: The role of the message sender (required)
+
+  - form: llm
+    name: content
+    type: string
+    required: true
+    label:
+      en_US: Content
+      zh_Hans: 内容
+      ja_JP: コンテント
+    human_description:
+      en_US: Content
+      zh_Hans: 内容
+      ja_JP: コンテント
+    llm_description: The exact message content
+
+  # Settings parameters
+
+extra:
+  python:
+    source: tools/add-memory.py
