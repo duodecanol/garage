@@ -1,0 +1,37 @@
+version: 0.0.1
+type: plugin
+author: duodecanol
+name: zep-memory
+label:
+  en_US: zep-memory
+  ja_JP: zep-memory
+  zh_Hans: zep-memory
+  pt_BR: zep-memory
+description:
+  en_US: zep memory
+  ja_JP: zep memory
+  zh_Hans: zep memory
+  pt_BR: zep memory
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    endpoint:
+      enabled: true
+plugins:
+  tools:
+    - provider/zep-memory.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-04-08T13:54:32.851151656+09:00
+privacy: PRIVACY.md
+verified: false

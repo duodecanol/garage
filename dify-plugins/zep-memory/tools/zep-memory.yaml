@@ -1,0 +1,61 @@
+identity:
+  name: zep-memory
+  author: duodecanol
+  label:
+    en_US: zep-memory
+    zh_Hans: zep-memory
+    pt_BR: zep-memory
+description:
+  human:
+    en_US: zep memory
+    zh_Hans: zep memory
+    pt_BR: zep memory
+  llm: zep memory
+parameters:
+  # LLM parameters
+  - form: llm
+    name: query
+    type: string
+    required: true
+    label:
+      en_US: Query string
+      zh_Hans: 查询语句
+      ja_JP: クエリ文字列
+    human_description:
+      en_US: zep memory
+      zh_Hans: zep memory
+      ja_JP: zep memory
+    llm_description: Query string
+
+  # Settings parameters
+  - form: form
+    name: user_id
+    type: string
+    required: true
+    label:
+      en_US: User ID
+      zh_Hans: 用户 ID
+      ja_JP: ユーザー ID
+    placeholder:
+      en_US: Please input your User ID
+      zh_Hans: 请输入你的用户 ID
+      ja_JP: ユーザー IDを入力してください
+    human_description:
+      en_US: User ID
+      zh_Hans: 用户 ID
+      ja_JP: ユーザー ID
+  - form: form
+    name: session_id
+    type: string
+    required: true
+    label:
+      en_US: Session ID
+      zh_Hans: 会话 ID
+      ja_JP: セッション ID
+    human_description:
+      en_US: Session ID
+      zh_Hans: 会话 ID
+      ja_JP: セッション ID
+extra:
+  python:
+    source: tools/zep-memory.py
